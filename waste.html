@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusLink - Professional Network</title>
+    <style>
+        /* ====== GLOBAL STYLES ====== */
+        :root {
+            --primary-teal: #0a66c2;
+            --primary-purple: #6a00f4;
+            --primary-dark: #004182;
+            --text-dark: #000000e6;
+            --text-gray: #666666;
+            --bg-light: #f3f2ef;
+            --card-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ====== NAVBAR ====== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 5%;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: fit-content;
+        }
+
+        .logo svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: var(--primary-teal);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, var(--primary-teal), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ====== SEARCH BAR ====== */
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            color: var(--text-gray);
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.6rem 1rem 0.6rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 2rem;
+            background: #f3f2ef;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            background: white;
+            border-color: var(--primary-teal);
+        }
+
+        /* Mobile Search Overlay */
+        .mobile-search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .mobile-search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .mobile-search-container input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 2rem;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .close-search {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* ====== NAV ITEMS ====== */
+        .nav-items {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .nav-items::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.5rem 0;
+            min-width: 50px;
+            flex-shrink: 0;
+        }
+
+        .nav-item i {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-item.active {
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--primary-teal);
+        }
+
+        .nav-item:hover {
+            color: var(--primary-teal);
+        }
+
+        .premium-btn {
+            background: transparent;
+            border: 1px solid #915907;
+            color: #915907;
+            padding: 0.6rem 1rem;
+            border-radius: 0.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .premium-btn:hover {
+            background: rgba(145, 89, 7, 0.05);
+        }
+
+        /* ====== MAIN LAYOUT ====== */
+        .container {
+            display: grid;
+            grid-template-columns: 22% 56% 22%;
+            gap: 1.5rem;
+            max-width: 1128px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        /* ====== LEFT SIDEBAR ====== */
+        .left-sidebar {
+            position: sticky;
+            top: 5rem;
+            height: fit-content;
+            align-self: start;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .profile-banner {
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-purple));
+        }
+
+        .profile-content {
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: -3rem;
+        }
+
+        .profile-pic {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .connection-stats {
+            padding: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .stat-item:hover {
+            color: var(--primary-teal);
+        }
+
+        /* ====== JOBS SEARCH CARD ====== */
+        .jobs-search-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 1rem;
+        }
+
+        .jobs-search-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .job-search-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-search-filters input {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+        }
+
+        .job-search-btn {
+            background: var(--primary-teal);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* ====== MAIN FEED ====== */
+        .main-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .post-box {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+        }
+
+        .post-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .post-input-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .post-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 2rem;
+            background: #f3f2ef;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            min-width: 0;
+        }
+
+        .post-input:focus {
+            outline: none;
+            background: white;
+            border-color: var(--primary-teal);
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .post-action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            flex: 1;
+            min-width: 0;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            white-space: nowrap;
+        }
+
+        .post-action:hover {
+            background: rgba(0,180,179,0.05);
+        }
+
+        /* ====== SAMPLE POST ====== */
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .post-user {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .post-user-img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .post-user-info {
+            min-width: 0;
+        }
+
+        .post-user-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .post-user-info p {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .post-content {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .post-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.8rem;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* ====== RIGHT SIDEBAR ====== */
+        .right-sidebar {
+            position: sticky;
+            top: 5rem;
+            height: fit-content;
+            align-self: start;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .news-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s;
+        }
+
+        .news-item:hover {
+            background: rgba(0,180,179,0.05);
+            border-radius: 0.5rem;
+            padding: 0.8rem;
+        }
+
+        .news-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            word-break: break-word;
+        }
+
+        .news-meta {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* ====== PEOPLE SEARCH ====== */
+        .people-search {
+            margin-bottom: 1rem;
+        }
+
+        .people-search input {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ====== RESPONSIVE BREAKPOINTS ====== */
+        /* Large Desktop (1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                grid-template-columns: 22% 56% 22%;
+            }
+        }
+
+        /* Tablet (1024px) */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 30% 1fr;
+                gap: 1rem;
+            }
+            .right-sidebar {
+                display: none;
+            }
+            .search-bar {
+                margin: 0 1rem;
+                max-width: 300px;
+            }
+            .nav-items {
+                gap: 1rem;
+            }
+            .job-search-btn {
+                width: auto;
+            }
+        }
+
+        /* Medium Tablet (900px) */
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 0.8rem 2%;
+            }
+            .search-bar {
+                max-width: 250px;
+            }
+        }
+
+        /* Small Tablet (768px) */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 0 0.5rem;
+                gap: 1rem;
+            }
+            .left-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .profile-card {
+                grid-column: 1 / -1;
+            }
+            .navbar {
+                padding: 0.8rem 1rem;
+                gap: 0.5rem;
+            }
+            .search-bar {
+                display: none;
+            }
+            .mobile-search-icon {
+                display: block !important;
+                font-size: 1.4rem;
+                color: var(--text-gray);
+                cursor: pointer;
+                flex-shrink: 0;
+            }
+            .nav-items {
+                gap: 0.5rem;
+                order: 1;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-item span {
+                display: none;
+            }
+            .premium-btn {
+                display: none;
+            }
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .post-actions {
+                gap: 0.3rem;
+            }
+            
+            .post-action {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .post-action span {
+                display: inline !important;
+            }
+            .job-search-btn {
+                width: 100%;
+            }
+        }
+
+        /* Medium Mobile (600px) */
+        @media (max-width: 600px) {
+            .left-sidebar {
+                grid-template-columns: 1fr;
+            }
+            .jobs-search-card {
+                order: 1;
+            }
+            .navbar {
+                flex-wrap: wrap;
+                row-gap: 0.5rem;
+            }
+            .logo {
+                order: -1;
+            }
+            .mobile-search-icon {
+                order: -1;
+            }
+            .nav-items {
+                order: 2;
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Mobile (480px) */
+        @media (max-width: 480px) {
+            .nav-items {
+                gap: 0.3rem;
+            }
+            .nav-item i {
+                font-size: 1.2rem;
+            }
+            
+            .post-input-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .post-input {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .post-actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            .post-action {
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem;
+                font-size: 0.7rem;
+                min-width: calc(50% - 0.5rem);
+                box-sizing: border-box;
+            }
+            
+            .post-action i {
+                margin-bottom: 0.2rem;
+                font-size: 1.1rem;
+            }
+
+            .job-search-filters {
+                flex-direction: column;
+            }
+
+            .logo svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        /* Small Mobile (360px) */
+        @media (max-width: 360px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+            .logo-text {
+                font-size: 1rem;
+            }
+            .nav-item {
+                min-width: 40px;
+            }
+            .nav-item i {
+                font-size: 1rem;
+            }
+            .post-box {
+                padding: 1rem;
+            }
+            .post-action {
+                font-size: 0.6rem;
+                padding: 0.3rem;
+                min-width: calc(50% - 0.3rem);
+            }
+            .post-user-info h4,
+            .post-user-info p {
+                font-size: 0.8rem;
+            }
+            .post-content {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Extra Small Mobile (320px) */
+        @media (max-width: 320px) {
+            .nav-item {
+                min-width: 35px;
+                padding: 0.3rem 0;
+            }
+            .nav-item i {
+                font-size: 0.9rem;
+            }
+            .post-action {
+                min-width: 100%;
+            }
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Search Overlay (Hidden by default) -->
+    <div class="mobile-search-overlay" id="mobileSearchOverlay">
+        <div class="mobile-search-container">
+            <input type="text" placeholder="Search jobs, people, posts..." id="mobileSearchInput">
+            <button class="close-search" id="closeSearch">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <span class="logo-text">NexusLink</span>
+        </div>
+        
+        <!-- Desktop Search Bar -->
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search jobs, people, posts..." id="desktopSearchInput">
+        </div>
+        
+        <!-- Mobile Search Icon -->
+        <div class="mobile-search-icon" id="mobileSearchIcon" style="display: none;">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="nav-items">
+            <div class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-user-friends"></i>
+                <span>Network</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-comment-dots"></i>
+                <span>Messaging</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Me</span>
+            </div>
+        </div>
+        
+        <button class="premium-btn">Try Premium</button>
+    </nav>
+    
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div class="left-sidebar">
+            <div class="profile-card">
+                <div class="profile-banner"></div>
+                <div class="profile-content">
+                    <img src="for-web.jpeg" class="profile-pic" alt="Profile picture">
+                    <h3 class="profile-name">Ammar Motan</h3>
+                    <p class="profile-title">Senior Developer</p>
+                </div>
+                
+                <div class="connection-stats">
+                    <div class="stat-item">
+                        <span>Profile viewers</span>
+                        <span>129</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Post impressions</span>
+                        <span>428</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Connections</span>
+                        <span>1,342</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Grow your network</span>
+                        <span>+</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jobs Search Card -->
+            <div class="jobs-search-card">
+                <h3>Find your next job</h3>
+                <div class="job-search-filters">
+                    <input type="text" placeholder="Job title">
+                    <input type="text" placeholder="Location">
+                    <button class="job-search-btn">Search</button>
+                </div>
+            </div>
+            
+            <div class="profile-card" style="padding: 1.5rem;">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Hashtags</h3>
+                </div>
+                <div class="news-item">
+                    <h4 class="news-title">#webdevelopment</h4>
+                    <p class="news-meta">32 posts today</p>
+                </div>
+                <div class="news-item">
+                    <h4 class="news-title">#careergrowth</h4>
+                    <p class="news-meta">28 posts today</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MAIN FEED -->
+        <div class="main-feed">
+            <!-- POST BOX -->
+            <div class="post-box">
+                <div class="post-input-container">
+                    <img src="for-web.jpeg" style="width:3rem;height:3rem;border-radius:50%" alt="User profile">
+                    <input type="text" placeholder="Start a post" class="post-input">
+                </div>
+                
+                <div class="post-actions">
+                    <button class="post-action">
+                        <i class="fas fa-image" style="color:var(--primary-teal);"></i>
+                        <span>Photo</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="fas fa-video" style="color:var(--primary-purple);"></i>
+                        <span>Video</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="fas fa-file-alt" style="color:#e7a33e;"></i>
+                        <span>Document</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="fas fa-newspaper" style="color:#f5987e;"></i>
+                        <span>Write article</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- SAMPLE POST 1 -->
+            <div class="post-box">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="ali.avif" class="post-user-img" alt="Ali Khan">
+                        <div class="post-user-info">
+                            <h4>Ali Khan</h4>
+                            <p>Product Manager • 1st • 2h ago</p>
+                        </div>
+                    </div>
+                    <button style="background:none;border:none;font-size:1.2rem;cursor:pointer">⋯</button>
+                </div>
+                
+                <div class="post-content">
+                    Just launched our new AI-powered analytics dashboard! After months of hard work with an amazing team, we're finally live. The dashboard provides real-time insights with predictive analytics capabilities. #ProductManagement #AI #Launch
+                </div>
+                
+                <img src="https://source.unsplash.com/random/800x400/?dashboard,analytics" class="post-image" alt="Analytics dashboard">
+                
+                <div class="post-stats">
+                    <span>42 likes • 8 comments</span>
+                    <span>12 reposts</span>
+                </div>
+                
+                <div class="post-actions" style="border-top:1px solid #eee;padding-top:0.8rem;">
+                    <button class="post-action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="fas fa-share"></i>
+                        <span>Repost</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="far fa-paper-plane"></i>
+                        <span>Send</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- SAMPLE POST 2 -->
+            <div class="post-box">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="post-user-img" alt="Sarah Johnson">
+                        <div class="post-user-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>UX Designer • 2nd • 5h ago</p>
+                        </div>
+                    </div>
+                    <button style="background:none;border:none;font-size:1.2rem;cursor:pointer">⋯</button>
+                </div>
+                
+                <div class="post-content">
+                    Excited to share my latest design project - a complete redesign of our mobile banking app focusing on accessibility and intuitive navigation. Would love to hear your thoughts! #UXDesign #MobileBanking #Accessibility
+                </div>
+                
+                <img src="https://source.unsplash.com/random/800x400/?mobile,app,design" class="post-image" alt="Mobile app design">
+                
+                <div class="post-stats">
+                    <span>87 likes • 14 comments</span>
+                    <span>5 reposts</span>
+                </div>
+                
+                <div class="post-actions" style="border-top:1px solid #eee;padding-top:0.8rem;">
+                    <button class="post-action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="fas fa-share"></i>
+                        <span>Repost</span>
+                    </button>
+                    <button class="post-action">
+                        <i class="far fa-paper-plane"></i>
+                        <span>Send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RIGHT SIDEBAR -->
+        <div class="right-sidebar">
+            <!-- People Search -->
+            <div class="news-card">
+                <div class="card-header">
+                    <h3 class="card-title">Find People</h3>
+                </div>
+                <div class="people-search">
+                    <input type="text" placeholder="Search by name, skills...">
+                </div>
+                <div class="news-item" style="display:flex;gap:0.8rem;align-items:center;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:3rem;height:3rem;border-radius:50%;object-fit:cover;" alt="Michael Chen">
+                    <div>
+                        <h4 class="news-title">Michael Chen</h4>
+                        <p class="news-meta">Software Engineer at TechCorp</p>
+                        <button style="margin-top:0.3rem;background:white;border:1px solid var(--primary-teal);color:var(--primary-teal);padding:0.3rem 0.6rem;border-radius:0.3rem;font-size:0.7rem;cursor:pointer;">
+                            Connect
+                        </button>
+                    </div>
+                </div>
+                <div class="news-item" style="display:flex;gap:0.8rem;align-items:center;">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" style="width:3rem;height:3rem;border-radius:50%;object-fit:cover;" alt="Priya Patel">
+                    <div>
+                        <h4 class="news-title">Priya Patel</h4>
+                        <p class="news-meta">Product Designer at DesignHub</p>
+                        <button style="margin-top:0.3rem;background:white;border:1px solid var(--primary-teal);color:var(--primary-teal);padding:0.3rem 0.6rem;border-radius:0.3rem;font-size:0.7rem;cursor:pointer;">
+                            Connect
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="card-header">
+                    <h3 class="card-title">NexusLink News</h3>
+                    <span style="font-size:1.2rem;color:var(--text-gray);cursor:pointer">ⓘ</span>
+                </div>
+                <div class="news-item">
+                    <h4 class="news-title">Tech hiring slows in Q3</h4>
+                    <p class="news-meta">2d ago • 1,482 readers</p>
+                </div>
+                <div class="news-item">
+                    <h4 class="news-title">Remote work becomes permanent</h4>
+                    <p class="news-meta">3d ago • 892 readers</p>
+                </div>
+                <div class="news-item">
+                    <h4 class="news-title">The future of AI in business</h4>
+                    <p class="news-meta">4d ago • 2,105 readers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Search Functionality
+        const mobileSearchIcon = document.getElementById('mobileSearchIcon');
+        const mobileSearchOverlay = document.getElementById('mobileSearchOverlay');
+        const closeSearch = document.getElementById('closeSearch');
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+        const desktopSearchInput = document.getElementById('desktopSearchInput');
+
+        // Show/hide mobile search based on screen size
+        function handleSearchVisibility() {
+            if (window.innerWidth <= 768) {
+                mobileSearchIcon.style.display = 'block';
+            } else {
+                mobileSearchIcon.style.display = 'none';
+                mobileSearchOverlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Initial check
+        handleSearchVisibility();
+
+        // Listen for resize events
+        window.addEventListener('resize', handleSearchVisibility);
+
+        mobileSearchIcon.addEventListener('click', function() {
+            mobileSearchOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            mobileSearchInput.focus();
+        });
+
+        closeSearch.addEventListener('click', function() {
+            mobileSearchOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+
+        // Sync search between mobile and desktop
+        mobileSearchInput.addEventListener('input', function() {
+            desktopSearchInput.value = this.value;
+        });
+
+        desktopSearchInput.addEventListener('input', function() {
+            mobileSearchInput.value = this.value;
+        });
+
+        // Job Search Basic Function
+        document.querySelector('.job-search-btn').addEventListener('click', function() {
+            const jobTitle = document.querySelector('.job-search-filters input[placeholder="Job title"]').value;
+            const location = document.querySelector('.job-search-filters input[placeholder="Location"]').value;
+            if (jobTitle || location) {
+                alert(`Searching for: ${jobTitle || 'any job'}${location ? ' in ' + location : ''}`);
+            } else {
+                alert('Please enter job title or location to search');
+            }
+        });
+
+        // Make nav items clickable
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelector('.nav-item.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

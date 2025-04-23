@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Alerts | Connextora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="alert.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container container">
+                <div class="logo">
+                    <div class="logo-icon floating">CX</div>
+                    <span>Connextora</span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search people, jobs, posts...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <button class="mobile-search-btn" id="mobileSearchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <div class="nav-items">
+                    <a href="index.html">
+                        <div class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </div>
+                    </a>
+                    <div class="nav-item">
+                        <i class="fas fa-compass"></i>
+                        <span>Explore</span>
+                    </div>
+                    <div class="nav-item active">
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                    </div>
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" class="user-avatar pulse" alt="User">
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="container">
+            <div class="main-grid">
+                <!-- Left Sidebar -->
+                <aside class="sidebar left-sidebar">
+                    <!-- Profile Card -->
+                    <div class="card profile-card">
+                        <div class="banner"></div>
+                        <div class="content">
+                            <img src="https://randomuser.me/api/portraits/men/42.jpg" class="profile-pic" alt="Profile">
+                            <a href="profile.html"><h3 class="profile-name">Ammar Motan</h3></a>
+                            <p class="profile-title">Senior Developer | AI Specialist</p>
+                            
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">1.5K</div>
+                                    <div class="stat-label">Connections</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">642</div>
+                                    <div class="stat-label">Posts</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">12.8K</div>
+                                    <div class="stat-label">Views</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">24</div>
+                                    <div class="stat-label">Events</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Groups</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">+</div>
+                                    <div class="stat-label">Grow</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stories -->
+                    <div class="card stories-container">
+                        <div class="stories-header">
+                            <h3 class="stories-title">Recent Stories</h3>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                        <div class="stories-scroll">
+                            <div class="story">
+                                <div class="story-avatar" style="background: var(--gradient-primary); color: white; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <span class="story-username">Your Story</span>
+                            </div>
+                            <div class="story">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="story-avatar" alt="Story">
+                                <span class="story-username">Sarah</span>
+                            </div>
+                            <div class="story">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="story-avatar" alt="Story">
+                                <span class="story-username">Michael</span>
+                            </div>
+                            <div class="story">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="story-avatar" alt="Story">
+                                <span class="story-username">Priya</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Shortcuts -->
+                    <div class="card shortcuts">
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span class="shortcut-text">Groups</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <span class="shortcut-text">Events</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <span class="shortcut-text">Jobs</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                            <span class="shortcut-text">Saved</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <span class="shortcut-text">Settings</span>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Main Feed - Alerts -->
+                <div class="main-feed">
+                    <div class="card alert-container">
+                        <div class="alert-header">
+                            <h1 class="alert-title">Notifications</h1>
+                            <div class="alert-filters">
+                                <button class="alert-filter active">All</button>
+                                <button class="alert-filter">Unread</button>
+                                <button class="alert-filter">Mentions</button>
+                                <button class="alert-filter">Following</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-list">
+                            <!-- Unread Notification -->
+                            <div class="alert-item unread fade-in">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" class="alert-avatar" alt="User">
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>Maria Garcia</strong> liked your post about the new design system. "Great insights! We're implementing something similar at our company."
+                                    </p>
+                                    <span class="alert-time">15 minutes ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Reply</button>
+                                        <button class="alert-action-btn secondary">View Post</button>
+                                    </div>
+                                </div>
+                                <div class="alert-dot"></div>
+                            </div>
+                            
+                            <!-- Mention Notification -->
+                            <div class="alert-item unread fade-in" style="animation-delay: 0.1s;">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" class="alert-avatar" alt="User">
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>Michael Chen</strong> mentioned you in a comment: "@AmmarMotan What do you think about this approach for the AI model?"
+                                    </p>
+                                    <span class="alert-time">1 hour ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Respond</button>
+                                        <button class="alert-action-btn secondary">View Thread</button>
+                                    </div>
+                                </div>
+                                <div class="alert-dot"></div>
+                            </div>
+                            
+                            <!-- Shared Post Notification -->
+                            <div class="alert-item fade-in" style="animation-delay: 0.2s;">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="alert-avatar" alt="User">
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>Priya Patel</strong> shared your post with her network. Your post has been viewed 342 times today.
+                                    </p>
+                                    <span class="alert-time">3 hours ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Thank</button>
+                                        <button class="alert-action-btn secondary">View Analytics</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Connection Notification -->
+                            <div class="alert-item fade-in" style="animation-delay: 0.3s;">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" class="alert-avatar" alt="User">
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>David Kim</strong> accepted your connection request. Send David a message to start your conversation.
+                                    </p>
+                                    <span class="alert-time">5 hours ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Message</button>
+                                        <button class="alert-action-btn secondary">View Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Group Event Notification -->
+                            <div class="alert-item unread fade-in" style="animation-delay: 0.4s;">
+                                <div class="alert-avatar" style="background: var(--gradient-primary); color: white; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>AI Developers Group</strong> has a new event: "Building Ethical AI Systems" on June 28th. 124 members are attending.
+                                    </p>
+                                    <span class="alert-time">8 hours ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">RSVP</button>
+                                        <button class="alert-action-btn secondary">View Event</button>
+                                    </div>
+                                </div>
+                                <div class="alert-dot"></div>
+                            </div>
+                            
+                            <!-- Comment Notification -->
+                            <div class="alert-item fade-in" style="animation-delay: 0.5s;">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="alert-avatar" alt="User">
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>Sarah Johnson</strong> commented on your photo: "This conference looks amazing! Wish I could have been there."
+                                    </p>
+                                    <span class="alert-time">1 day ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Reply</button>
+                                        <button class="alert-action-btn secondary">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Recommendation -->
+                            <div class="alert-item fade-in" style="animation-delay: 0.6s;">
+                                <div class="alert-avatar" style="background: var(--gradient-primary); color: white; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <p class="alert-text">
+                                        <strong>TechNova</strong> is hiring for "Senior AI Engineer". Based on your profile, you might be a good fit for this position.
+                                    </p>
+                                    <span class="alert-time">2 days ago</span>
+                                    <div class="alert-actions">
+                                        <button class="alert-action-btn primary">Apply</button>
+                                        <button class="alert-action-btn secondary">View Job</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Sidebar -->
+                <aside class="sidebar right-sidebar">
+                    <!-- Events -->
+                    <div class="card events-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Upcoming Events</h3>
+                            <i class="fas fa-ellipsis-h card-options"></i>
+                        </div>
+                        
+                        <div class="event-item">
+                            <span class="event-date">JUN 15</span>
+                            <h4 class="event-title">Tech Leadership Summit 2023</h4>
+                            <p class="event-meta">Virtual • 2.4K attending</p>
+                        </div>
+                        
+                        <div class="event-item">
+                            <span class="event-date">JUN 22</span>
+                            <h4 class="event-title">AI Product Conference</h4>
+                            <p class="event-meta">San Francisco • 1.2K attending</p>
+                        </div>
+                        
+                        <div class="event-item">
+                            <span class="event-date">JUL 5</span>
+                            <h4 class="event-title">Web3 & Future of Internet</h4>
+                            <p class="event-meta">Online • 3.8K attending</p>
+                        </div>
+                    </div>
+                    
+                    <!-- People to Follow -->
+                    <div class="card people-card">
+                        <div class="card-header">
+                            <h3 class="card-title">People You May Know</h3>
+                            <i class="fas fa-ellipsis-h card-options"></i>
+                        </div>
+                        
+                        <div class="person-item">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="person-avatar" alt="Person">
+                            <div class="person-info">
+                                <h4 class="person-name">Priya Patel</h4>
+                                <p class="person-title">Product Designer at DesignHub</p>
+                            </div>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                        
+                        <div class="person-item">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" class="person-avatar" alt="Person">
+                            <div class="person-info">
+                                <h4 class="person-name">David Kim</h4>
+                                <p class="person-title">Engineering Manager at TechCorp</p>
+                            </div>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                        
+                        <div class="person-item">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="person-avatar" alt="Person">
+                            <div class="person-info">
+                                <h4 class="person-name">Sarah Johnson</h4>
+                                <p class="person-title">UX Lead at CreativeMinds</p>
+                            </div>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending -->
+                    <div class="card trending-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Trending Now</h3>
+                            <i class="fas fa-cog card-options"></i>
+                        </div>
+                        
+                        <div class="trend-item">
+                            <p class="trend-category">Technology • Trending</p>
+                            <h4 class="trend-name">#Web3Development</h4>
+                            <p class="trend-count">15.2K posts</p>
+                        </div>
+                        
+                        <div class="trend-item">
+                            <p class="trend-category">Business • Trending</p>
+                            <h4 class="trend-name">#RemoteWorkLife</h4>
+                            <p class="trend-count">12.8K posts</p>
+                        </div>
+                        
+                        <div class="trend-item">
+                            <p class="trend-category">Careers • Popular</p>
+                            <h4 class="trend-name">#TechJobHunt</h4>
+                            <p class="trend-count">9.4K posts</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>© 2023 Connextora. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <a href="index.html">
+                <div class="mobile-nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="jobs.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </div>
+            </a>
+            <a href="explore.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </div>
+            </a>
+            <a href="alert.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Alerts</span>
+                </div>
+            </a>
+            <div class="mobile-nav-item" id="mobileMessagesBtn">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+            </div>
+            <a href="profile.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </nav>
+        
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <!-- Mobile Search Modal -->
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-header">
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <input type="text" class="search-modal-input" placeholder="Search people, jobs, posts...">
+            </div>
+        </div>
+    </div>
+
+    <script src="alert.js"></script>
+</body>
+</html>

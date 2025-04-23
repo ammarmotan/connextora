@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connextora | Professional Networking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== CORE VARIABLES ====== */
+        :root {
+            /* Color System */
+            --primary: #7B2CBF;
+            --primary-dark: #5A189A;
+            --primary-light: #9D4EDD;
+            --accent: #FF9E00;
+            --accent-dark: #FF8500;
+            
+            /* Text Colors */
+            --text-dark: #1A1A2E;
+            --text-medium: #4A4A6A;
+            --text-light: #8C8CA1;
+            
+            /* Backgrounds */
+            --bg-light: #F8F9FF;
+            --card-bg: #FFFFFF;
+            --divider: #E5E7F0;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            
+            /* Typography */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+        }
+
+        /* ====== DARK MODE ====== */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #9D4EDD;
+                --primary-dark: #7B2CBF;
+                --primary-light: #C77DFF;
+                --accent: #FFB347;
+                --accent-dark: #FF9E00;
+                --text-dark: #F0F0FF;
+                --text-medium: #C5C5E0;
+                --text-light: #8C8CA1;
+                --bg-light: #12121D;
+                --card-bg: #1E1E2E;
+                --divider: #2D2D42;
+            }
+        }
+
+        /* ====== BASE STYLES ====== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ====== AUTH LAYOUT ====== */
+        .auth-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .auth-header {
+            padding: var(--space-lg) 0;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 800;
+            font-size: var(--text-xl);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(123, 44, 191, 0.25);
+        }
+
+        .auth-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl) var(--space-md);
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: var(--space-2xl);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .auth-title {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            text-align: center;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .auth-subtitle {
+            font-size: var(--text-base);
+            color: var(--text-medium);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        /* ====== FORM STYLES ====== */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-label {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+
+        .form-input {
+            padding: var(--space-md);
+            border: 1px solid var(--divider);
+            border-radius: 12px;
+            font-size: var(--text-base);
+            background-color: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-xs);
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-sm);
+            color: var(--text-medium);
+        }
+
+        .remember-me input {
+            accent-color: var(--primary);
+        }
+
+        .forgot-password {
+            font-size: var(--text-sm);
+            color: var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== BUTTON STYLES ====== */
+        .auth-btn {
+            padding: var(--space-md);
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .auth-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .auth-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ====== SOCIAL LOGIN ====== */
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--text-medium);
+            font-size: var(--text-sm);
+            margin: var(--space-lg) 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--divider);
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            border-radius: 12px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: 500;
+            border: 1px solid var(--divider);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .google-btn:hover {
+            background: rgba(123, 44, 191, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .google-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* ====== SIGNUP LINK ====== */
+        .signup-link {
+            text-align: center;
+            margin-top: var(--space-xl);
+            font-size: var(--text-sm);
+            color: var(--text-medium);
+        }
+
+        .signup-link a {
+            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== FOOTER ====== */
+        .auth-footer {
+            text-align: center;
+            padding: var(--space-md);
+            font-size: var(--text-sm);
+            color: var(--text-medium);
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ====== RESPONSIVE ADJUSTMENTS ====== */
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: var(--space-xl);
+            }
+            
+            .auth-title {
+                font-size: var(--text-xl);
+            }
+            
+            .logo {
+                font-size: var(--text-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: var(--space-lg);
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .form-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Header -->
+        <header class="auth-header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">CX</div>
+                    <span>Connextora</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="auth-main">
+            <div class="auth-card">
+                <h1 class="auth-title">Welcome Back</h1>
+                <p class="auth-subtitle">Sign in to access your professional network</p>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                        <div class="form-footer">
+                            <label class="remember-me">
+                                <input type="checkbox" id="remember"> Remember me
+                            </label>
+                            <a href="#" class="forgot-password" id="forgotPassword">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn primary">Sign In</button>
+                </form>
+                
+                <div class="social-login">
+                    <div class="divider">or continue with</div>
+                    
+                    <button class="google-btn" id="googleSignIn">
+                        <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                            <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                        </svg>
+                        Sign in with Google
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    New to Connextora? <a href="#" id="goToSignup">Create an account</a>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="auth-footer">
+            <div class="container">
+                <p>© 2023 Connextora. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginForm = document.getElementById('loginForm');
+        const googleSignIn = document.getElementById('googleSignIn');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const goToSignup = document.getElementById('goToSignup');
+        
+        // Form Submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate login process
+            console.log('Login attempt with:', { email, password, remember });
+            
+            // Show loading state
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing In...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = 'Sign In';
+                submitBtn.disabled = false;
+                alert('Login successful! Redirecting to dashboard...');
+                // window.location.href = 'index.html'; // Uncomment to redirect
+            }, 1500);
+        });
+        
+        // Google Sign In
+        googleSignIn.addEventListener('click', function() {
+            console.log('Google sign-in initiated');
+            // In a real app, this would open Google's OAuth flow
+            alert('Redirecting to Google authentication...');
+        });
+        
+        // Forgot Password
+        forgotPassword.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = prompt('Please enter your email to reset password:');
+            if (email) {
+                console.log('Password reset requested for:', email);
+                alert(`Password reset link sent to ${email}`);
+            }
+        });
+        
+        // Go to Signup
+        goToSignup.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Redirecting to signup page');
+            // In a real app, this would redirect to signup page
+            alert('Redirecting to signup page...');
+            // window.location.href = 'signup.html'; // Uncomment to redirect
+        });
+        
+        // Dark Mode Support
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+        document.body.setAttribute('data-theme', currentTheme);
+    </script>
+</body>
+</html>

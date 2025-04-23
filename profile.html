@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Ammar Motan | Connextora Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon floating">CX</div>
+                    <span>Connextora</span>
+                </a>
+
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search people, jobs, posts...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <div class="nav-items">
+                    <div class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-compass"></i>
+                        <span>Explore</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                    </div>
+                    <div class="nav-item active">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" class="user-avatar pulse" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-banner">
+                    <img src="https://source.unsplash.com/random/1600x600/?technology,ai" alt="Profile banner">
+                </div>
+
+                <div class="profile-actions">
+                    <button class="profile-action-btn primary">
+                        <i class="fas fa-plus"></i> Add to Story
+                    </button>
+                    <button class="profile-action-btn secondary">
+                        <i class="fas fa-pen"></i> Edit Profile
+                    </button>
+                </div>
+
+                <div class="profile-info-container">
+                    <div class="profile-card">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" class="profile-pic" alt="Profile">
+                        <h1 class="profile-name">Ammar Motan</h1>
+                        <p class="profile-title">Senior Developer | AI Specialist</p>
+                        <div class="profile-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">1.5K</div>
+                                <div class="stat-label">Connections</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">642</div>
+                                <div class="stat-label">Posts</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">12.8K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24</div>
+                                <div class="stat-label">Events</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Groups</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Certificates</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="profile-nav">
+                    <div class="profile-nav-item active" data-tab="posts">Posts</div>
+                    <div class="profile-nav-item" data-tab="about">About</div>
+                    <div class="profile-nav-item" data-tab="experience">Experience</div>
+                    <div class="profile-nav-item" data-tab="education">Education</div>
+                    <div class="profile-nav-item" data-tab="skills">Skills</div>
+                    <div class="profile-nav-item" data-tab="tasks">Tasks</div>
+                    <div class="profile-nav-item" data-tab="certificates">Certificates</div>
+                    <div class="profile-nav-item" data-tab="connections">Connections</div>
+                </nav>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Left Column (About, Experience, Education, Skills) -->
+                <div class="profile-sidebar">
+                    <!-- About Section -->
+                    <div class="about-section tab-content active" id="about-tab">
+                        <h2 class="section-title">
+                            About
+                            <i class="fas fa-pencil section-edit"></i>
+                        </h2>
+
+                        <div class="about-item">
+                            <h3 class="about-item-title">
+                                <i class="fas fa-user"></i> Summary
+                            </h3>
+                            <div class="about-item-content">
+                                Experienced Senior Developer specializing in AI and machine learning with over 8 years
+                                of industry experience. Passionate about creating innovative solutions that leverage
+                                cutting-edge technologies to solve real-world problems. Strong background in full-stack
+                                development, cloud computing, and data science.
+                            </div>
+                        </div>
+
+                        <div class="about-item">
+                            <h3 class="about-item-title">
+                                <i class="fas fa-briefcase"></i> Current Position
+                            </h3>
+                            <div class="about-item-content">
+                                Senior AI Developer at TechGen Solutions (2020-Present)
+                            </div>
+                        </div>
+
+                        <div class="about-item">
+                            <h3 class="about-item-title">
+                                <i class="fas fa-graduation-cap"></i> Education
+                            </h3>
+                            <div class="about-item-content">
+                                MS in Computer Science - Stanford University (2016)
+                            </div>
+                        </div>
+
+                        <div class="about-item">
+                            <h3 class="about-item-title">
+                                <i class="fas fa-star"></i> Skills
+                            </h3>
+                            <div class="about-item-content">
+                                <ul>
+                                    <li>Machine Learning</li>
+                                    <li>Python Development</li>
+                                    <li>Cloud Computing</li>
+                                    <li>Neural Networks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Section -->
+                    <div class="about-section tab-content" id="experience-tab">
+                        <h2 class="section-title">
+                            Experience
+                            <i class="fas fa-pencil section-edit"></i>
+                        </h2>
+
+                        <div class="experience-item">
+                            <img src="https://logo.clearbit.com/techgensolutions.com" class="experience-logo"
+                                alt="TechGen Solutions">
+                            <div class="experience-details">
+                                <h3 class="experience-title">Senior AI Developer</h3>
+                                <p class="experience-company">TechGen Solutions</p>
+                                <p class="experience-duration">Jan 2020 - Present · 3 yrs 6 mos</p>
+                                <p class="experience-description">
+                                    Leading a team of 5 developers to build AI-powered solutions for enterprise clients.
+                                    Developed machine learning models that improved business processes by 40%.
+                                    Implemented cloud-based AI services that reduced infrastructure costs by 30%.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <img src="https://logo.clearbit.com/innovatech.com" class="experience-logo"
+                                alt="InnovaTech">
+                            <div class="experience-details">
+                                <h3 class="experience-title">AI Developer</h3>
+                                <p class="experience-company">InnovaTech</p>
+                                <p class="experience-duration">Mar 2017 - Dec 2019 · 2 yrs 10 mos</p>
+                                <p class="experience-description">
+                                    Developed and deployed machine learning models for predictive analytics. Worked on
+                                    natural language processing projects that improved customer service automation.
+                                    Collaborated with cross-functional teams to integrate AI solutions into existing
+                                    products.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="about-section tab-content" id="education-tab">
+                        <h2 class="section-title">
+                            Education
+                            <i class="fas fa-pencil section-edit"></i>
+                        </h2>
+
+                        <div class="education-item">
+                            <img src="https://logo.clearbit.com/stanford.edu" class="education-logo"
+                                alt="Stanford University">
+                            <div class="education-details">
+                                <h3 class="education-degree">MS in Computer Science</h3>
+                                <p class="education-school">Stanford University</p>
+                                <p class="education-duration">2014 - 2016</p>
+                            </div>
+                        </div>
+
+                        <div class="education-item">
+                            <img src="https://logo.clearbit.com/berkeley.edu" class="education-logo" alt="UC Berkeley">
+                            <div class="education-details">
+                                <h3 class="education-degree">BS in Computer Science</h3>
+                                <p class="education-school">University of California, Berkeley</p>
+                                <p class="education-duration">2010 - 2014</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="about-section tab-content" id="skills-tab">
+                        <h2 class="section-title">
+                            Skills
+                            <i class="fas fa-pencil section-edit"></i>
+                        </h2>
+
+                        <div class="skills-container">
+                            <div class="skill-tag">
+                                <i class="fab fa-python"></i> Python
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-brain"></i> Machine Learning
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-project-diagram"></i> Neural Networks
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-cloud"></i> Cloud Computing
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fab fa-js"></i> JavaScript
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-database"></i> SQL
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-chart-line"></i> Data Analysis
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-robot"></i> AI
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fab fa-react"></i> React
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fab fa-node-js"></i> Node.js
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-server"></i> AWS
+                            </div>
+                            <div class="skill-tag">
+                                <i class="fas fa-code"></i> TensorFlow
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Posts, Tasks, Certificates, Connections) -->
+                <div class="profile-main">
+                    <!-- Posts Section -->
+                    <div class="profile-posts tab-content active" id="posts-tab">
+                        <!-- Post 1 -->
+                        <div class="feed-post fade-in">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" class="post-user-avatar"
+                                        alt="User">
+                                    <div class="post-user-info">
+                                        <h4>Ammar Motan</h4>
+                                        <p>Senior Developer | AI Specialist</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-ellipsis-h post-options"></i>
+                            </div>
+
+                            <div class="post-content">
+                                <p class="post-text">
+                                    Just wrapped up an exciting project where we implemented a new machine learning
+                                    model that reduced processing time by 65% while maintaining 98% accuracy. So proud
+                                    of my team for their hard work and dedication! #AI #MachineLearning #TechInnovation
+                                </p>
+
+                                <div class="post-tags">
+                                    <span class="post-tag">#AI</span>
+                                    <span class="post-tag">#MachineLearning</span>
+                                    <span class="post-tag">#TechInnovation</span>
+                                </div>
+
+                                <img src="https://source.unsplash.com/random/800x400/?ai,technology" class="post-image"
+                                    alt="Post image">
+                            </div>
+
+                            <div class="post-engagement">
+                                <div class="post-stats">
+                                    <div class="post-stat">
+                                        <i class="fas fa-thumbs-up"></i> 124
+                                    </div>
+                                    <div class="post-stat">
+                                        <i class="fas fa-comment"></i> 28
+                                    </div>
+                                    <div class="post-stat">
+                                        <i class="fas fa-share"></i> 12
+                                    </div>
+                                </div>
+
+                                <div class="post-actions-container">
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-thumbs-up"></i> Like
+                                    </button>
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-comment"></i> Comment
+                                    </button>
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="feed-post fade-in">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" class="post-user-avatar"
+                                        alt="User">
+                                    <div class="post-user-info">
+                                        <h4>Ammar Motan</h4>
+                                        <p>Senior Developer | AI Specialist</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-ellipsis-h post-options"></i>
+                            </div>
+
+                            <div class="post-content">
+                                <p class="post-text">
+                                    Attending the AI Summit next week in San Francisco. Would love to connect with
+                                    fellow AI enthusiasts who are going to be there! Let me know if you'd like to meet
+                                    up and exchange ideas. #AISummit #Networking #TechCommunity
+                                </p>
+
+                                <div class="post-tags">
+                                    <span class="post-tag">#AISummit</span>
+                                    <span class="post-tag">#Networking</span>
+                                    <span class="post-tag">#TechCommunity</span>
+                                </div>
+                            </div>
+
+                            <div class="post-engagement">
+                                <div class="post-stats">
+                                    <div class="post-stat">
+                                        <i class="fas fa-thumbs-up"></i> 89
+                                    </div>
+                                    <div class="post-stat">
+                                        <i class="fas fa-comment"></i> 15
+                                    </div>
+                                    <div class="post-stat">
+                                        <i class="fas fa-share"></i> 7
+                                    </div>
+                                </div>
+
+                                <div class="post-actions-container">
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-thumbs-up"></i> Like
+                                    </button>
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-comment"></i> Comment
+                                    </button>
+                                    <button class="post-action-btn secondary">
+                                        <i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Section -->
+                    <div class="tab-content" id="tasks-tab">
+                        <div class="tasks-section">
+                            <h2 class="section-title">
+                                My Tasks
+                                <span class="section-edit">3/5 completed</span>
+                            </h2>
+
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox" checked>
+                                <div class="task-details">
+                                    <h3 class="task-title">Complete Python Fundamentals Course</h3>
+                                    <p class="task-description">Finish all modules and pass the final assessment with at
+                                        least 80% score.</p>
+                                    <div class="task-reward">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Earned: Python Basics Certificate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox" checked>
+                                <div class="task-details">
+                                    <h3 class="task-title">Build a Portfolio Website</h3>
+                                    <p class="task-description">Create a personal portfolio showcasing your projects and
+                                        skills.</p>
+                                    <div class="task-reward">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Earned: Web Development Badge</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox" checked>
+                                <div class="task-details">
+                                    <h3 class="task-title">Complete Machine Learning Challenge</h3>
+                                    <p class="task-description">Participate in the monthly ML challenge and submit your
+                                        solution.</p>
+                                    <div class="task-reward">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Earned: ML Challenge Winner Badge</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <div class="task-details">
+                                    <h3 class="task-title">Contribute to Open Source Project</h3>
+                                    <p class="task-description">Make at least one meaningful contribution to an open
+                                        source project.</p>
+                                    <div class="task-reward">
+                                        <i class="fas fa-star"></i>
+                                        <span>Potential Reward: Open Source Contributor Certificate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <div class="task-details">
+                                    <h3 class="task-title">Attend 3 Networking Events</h3>
+                                    <p class="task-description">Participate in at least 3 professional networking events
+                                        this month.</p>
+                                    <div class="task-reward">
+                                        <i class="fas fa-star"></i>
+                                        <span>Potential Reward: Networking Pro Badge</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificates Section -->
+                    <div class="tab-content" id="certificates-tab">
+                        <div class="certificates-section">
+                            <h2 class="section-title">
+                                My Certificates
+                                <span class="section-edit">5 earned</span>
+                            </h2>
+
+                            <div class="certificate-item">
+                                <img src="https://source.unsplash.com/random/300x200/?certificate"
+                                    class="certificate-image" alt="Python Certificate">
+                                <div class="certificate-details">
+                                    <h3 class="certificate-title">Python Programming Fundamentals</h3>
+                                    <p class="certificate-issuer">Connextora Academy</p>
+                                    <p class="certificate-date">Issued: May 2023 · Expires: Never</p>
+                                    <p class="about-item-content">
+                                        Earned by completing all modules of the Python Fundamentals course with
+                                        distinction.
+                                    </p>
+                                    <div class="certificate-actions">
+                                        <button class="certificate-action-btn primary">
+                                            <i class="fas fa-share"></i> Share
+                                        </button>
+                                        <button class="certificate-action-btn secondary">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="certificate-item">
+                                <img src="https://source.unsplash.com/random/300x200/?diploma" class="certificate-image"
+                                    alt="ML Certificate">
+                                <div class="certificate-details">
+                                    <h3 class="certificate-title">Machine Learning Specialist</h3>
+                                    <p class="certificate-issuer">Connextora AI Institute</p>
+                                    <p class="certificate-date">Issued: March 2023 · Expires: March 2025</p>
+                                    <p class="about-item-content">
+                                        Awarded for demonstrating advanced skills in machine learning algorithms and
+                                        model deployment.
+                                    </p>
+                                    <div class="certificate-actions">
+                                        <button class="certificate-action-btn primary">
+                                            <i class="fas fa-share"></i> Share
+                                        </button>
+                                        <button class="certificate-action-btn secondary">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="certificate-item">
+                                <img src="https://source.unsplash.com/random/300x200/?document"
+                                    class="certificate-image" alt="Web Dev Certificate">
+                                <div class="certificate-details">
+                                    <h3 class="certificate-title">Advanced Web Development</h3>
+                                    <p class="certificate-issuer">Connextora Tech</p>
+                                    <p class="certificate-date">Issued: January 2023 · Expires: Never</p>
+                                    <p class="about-item-content">
+                                        Completed with honors for building a full-stack application with React and
+                                        Node.js.
+                                    </p>
+                                    <div class="certificate-actions">
+                                        <button class="certificate-action-btn primary">
+                                            <i class="fas fa-share"></i> Share
+                                        </button>
+                                        <button class="certificate-action-btn secondary">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connections Section -->
+                    <div class="tab-content" id="connections-tab">
+                        <div class="about-section">
+                            <h2 class="section-title">
+                                Connections
+                                <span class="section-edit">1,500+</span>
+                            </h2>
+
+                            <div class="connections-grid">
+                                <!-- Connection 1 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg"
+                                        class="connection-avatar" alt="Sarah Johnson">
+                                    <h3 class="connection-name">Sarah Johnson</h3>
+                                    <p class="connection-title">AI Researcher at Google</p>
+                                    <button class="connection-btn primary">
+                                        <i class="fas fa-comment"></i> Message
+                                    </button>
+                                </div>
+
+                                <!-- Connection 2 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="connection-avatar"
+                                        alt="Michael Chen">
+                                    <h3 class="connection-name">Michael Chen</h3>
+                                    <p class="connection-title">Data Scientist at Facebook</p>
+                                    <button class="connection-btn secondary">
+                                        <i class="fas fa-user-plus"></i> Follow
+                                    </button>
+                                </div>
+
+                                <!-- Connection 3 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg"
+                                        class="connection-avatar" alt="Priya Patel">
+                                    <h3 class="connection-name">Priya Patel</h3>
+                                    <p class="connection-title">ML Engineer at Amazon</p>
+                                    <button class="connection-btn primary">
+                                        <i class="fas fa-comment"></i> Message
+                                    </button>
+                                </div>
+
+                                <!-- Connection 4 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/men/65.jpg" class="connection-avatar"
+                                        alt="David Kim">
+                                    <h3 class="connection-name">David Kim</h3>
+                                    <p class="connection-title">CTO at StartupX</p>
+                                    <button class="connection-btn secondary">
+                                        <i class="fas fa-user-plus"></i> Follow
+                                    </button>
+                                </div>
+
+                                <!-- Connection 5 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/women/28.jpg"
+                                        class="connection-avatar" alt="Emma Wilson">
+                                    <h3 class="connection-name">Emma Wilson</h3>
+                                    <p class="connection-title">Product Manager at Microsoft</p>
+                                    <button class="connection-btn primary">
+                                        <i class="fas fa-comment"></i> Message
+                                    </button>
+                                </div>
+
+                                <!-- Connection 6 -->
+                                <div class="connection-card fade-in">
+                                    <img src="https://randomuser.me/api/portraits/men/33.jpg" class="connection-avatar"
+                                        alt="James Rodriguez">
+                                    <h3 class="connection-name">James Rodriguez</h3>
+                                    <p class="connection-title">Cloud Architect at IBM</p>
+                                    <button class="connection-btn secondary">
+                                        <i class="fas fa-user-plus"></i> Follow
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2023 Connextora. All rights reserved.</p>
+        </footer>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <a href="index.html">
+                <div class="mobile-nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="jobs.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </div>
+            </a>
+            <a href="explore.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </div>
+            </a>
+            <a href="alert.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Alerts</span>
+                </div>
+            </a>
+            <div class="mobile-nav-item" id="mobileMessagesBtn">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+            </div>
+            <a href="profile.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+
+</html>

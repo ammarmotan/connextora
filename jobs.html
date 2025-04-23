@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Jobs | Connextora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="jobs.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container container">
+                <div class="logo">
+                    <div class="logo-icon floating">CX</div>
+                    <span>Connextora</span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search people, jobs, posts...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <button class="mobile-search-btn" id="mobileSearchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <div class="nav-items">
+                    <a href="index.html">                        
+                        <div class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </div>
+                    </a>
+                    <a href="jobs.html">
+                        <div class="nav-item active">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Jobs</span>
+                        </div>
+                    </a>
+                    <a href="explore.html">
+                        <div class="nav-item">
+                            <i class="fas fa-compass"></i>
+                            <span>Explore</span>
+                        </div>
+                    </a>
+                    <a href="alert.html">
+                        <div class="nav-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                        </div>
+                    </a>
+                    <div class="nav-item" id="messagesNavItem">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                    </div>
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" class="user-avatar pulse" alt="User">
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="container">
+            <div class="main-grid">
+                <!-- Left Sidebar -->
+                <aside class="sidebar left-sidebar">
+                    <!-- Profile Card -->
+                    <div class="card profile-card">
+                        <div class="banner"></div>
+                        <div class="content">
+                            <img src="https://randomuser.me/api/portraits/men/42.jpg" class="profile-pic" alt="Profile">
+                            <a href="profile.html"><h3 class="profile-name">Ammar Motan</h3></a>
+                            <p class="profile-title">Senior Developer | AI Specialist</p>
+                            
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">1.5K</div>
+                                    <div class="stat-label">Connections</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">642</div>
+                                    <div class="stat-label">Posts</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">12.8K</div>
+                                    <div class="stat-label">Views</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">24</div>
+                                    <div class="stat-label">Events</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Groups</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">+</div>
+                                    <div class="stat-label">Grow</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Alerts -->
+                    <div class="card job-sidebar-card">
+                        <h3 class="sidebar-title">Create Job Alert</h3>
+                        <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-md);">
+                            Get notified when new jobs match your search criteria
+                        </p>
+                        <form class="job-alert-form">
+                            <input type="text" class="alert-input" placeholder="Job title or keywords">
+                            <input type="text" class="alert-input" placeholder="Location">
+                            <select class="alert-input">
+                                <option value="">Frequency</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                            <button type="submit" class="create-alert-btn">Create Alert</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Recommended Jobs -->
+                    <div class="card job-sidebar-card">
+                        <div class="card-header">
+                            <h3 class="sidebar-title">Recommended Jobs</h3>
+                            <i class="fas fa-ellipsis-h card-options"></i>
+                        </div>
+                        
+                        <div class="recommended-job">
+                            <h4 class="recommended-job-title">Frontend Developer</h4>
+                            <p class="recommended-job-company">DesignHub Inc.</p>
+                            <p class="recommended-job-location">San Francisco, CA • Remote</p>
+                        </div>
+                        
+                        <div class="recommended-job">
+                            <h4 class="recommended-job-title">UX Designer</h4>
+                            <p class="recommended-job-company">CreativeMinds</p>
+                            <p class="recommended-job-location">New York, NY • Hybrid</p>
+                        </div>
+                        
+                        <div class="recommended-job">
+                            <h4 class="recommended-job-title">Product Manager</h4>
+                            <p class="recommended-job-company">TechNova</p>
+                            <p class="recommended-job-location">Austin, TX • On-site</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Insights -->
+                    <div class="card job-sidebar-card">
+                        <h3 class="sidebar-title">Salary Insights</h3>
+                        <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-md);">
+                            Average salary for "Web Developer" in your area
+                        </p>
+                        
+                        <div class="salary-range">
+                            <div class="salary-range-fill"></div>
+                        </div>
+                        
+                        <div class="salary-info">
+                            <span class="salary-amount">$85K</span>
+                            <span class="salary-amount">$120K</span>
+                        </div>
+                        
+                        <p class="salary-count">Based on 342 salaries</p>
+                    </div>
+                </aside>
+                
+                <!-- Main Feed -->
+                <div class="main-feed">
+                    <!-- Job Search -->
+                    <div class="card job-search-container">
+                        <div class="job-search-header">
+                            <h1 class="job-search-title">Find Your Dream Job</h1>
+                            <p class="job-search-subtitle">
+                                Browse through thousands of full-time and part-time jobs near you
+                            </p>
+                        </div>
+                        
+                        <form class="job-search-form">
+                            <div class="search-input-group">
+                                <i class="fas fa-search"></i>
+                                <input type="text" class="job-search-input" placeholder="Job title or keywords">
+                            </div>
+                            
+                            <div class="search-input-group">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" class="job-search-input" placeholder="Location">
+                            </div>
+                            
+                            <button type="submit" class="job-search-btn">
+                                <i class="fas fa-search"></i> Search Jobs
+                            </button>
+                        </form>
+                        
+                        <div class="job-filters">
+                            <button class="filter-btn active">All Jobs</button>
+                            <button class="filter-btn">Remote</button>
+                            <button class="filter-btn">Full-time</button>
+                            <button class="filter-btn">Part-time</button>
+                            <button class="filter-btn">Contract</button>
+                            <button class="filter-btn">Internship</button>
+                        </div>
+                        
+                        <div class="job-listings">
+                            <!-- Job Listing 1 -->
+                            <div class="card job-card fade-in">
+                                <div class="job-card-header">
+                                    <div class="job-card-company">
+                                        <img src="https://logo.clearbit.com/technova.com" class="company-logo" alt="TechNova">
+                                        <div class="company-info">
+                                            <h4>TechNova</h4>
+                                            <p>San Francisco, CA • Remote</p>
+                                        </div>
+                                    </div>
+                                    <button class="job-save-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="job-card-body">
+                                    <h3 class="job-title">Senior Frontend Developer</h3>
+                                    
+                                    <div class="job-details">
+                                        <div class="job-detail">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>$120K - $150K</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Full-time</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>5+ years exp.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="job-description">
+                                        We're looking for an experienced Frontend Developer to join our growing team. You'll work with modern technologies like React, TypeScript, and Next.js to build beautiful, performant user interfaces. Experience with state management (Redux, Context API) and testing frameworks is a plus.
+                                    </p>
+                                    
+                                    <div class="job-tags">
+                                        <span class="job-tag">React</span>
+                                        <span class="job-tag">TypeScript</span>
+                                        <span class="job-tag">Next.js</span>
+                                        <span class="job-tag">UI/UX</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-card-footer">
+                                    <span class="job-posted">Posted 2 days ago • 24 applicants</span>
+                                    <button class="job-apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Listing 2 -->
+                            <div class="card job-card fade-in" style="animation-delay: 0.1s;">
+                                <div class="job-card-header">
+                                    <div class="job-card-company">
+                                        <img src="https://logo.clearbit.com/designhub.com" class="company-logo" alt="DesignHub">
+                                        <div class="company-info">
+                                            <h4>DesignHub</h4>
+                                            <p>New York, NY • Hybrid</p>
+                                        </div>
+                                    </div>
+                                    <button class="job-save-btn saved">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="job-card-body">
+                                    <h3 class="job-title">UX/UI Designer</h3>
+                                    
+                                    <div class="job-details">
+                                        <div class="job-detail">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>$90K - $120K</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Full-time</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>3+ years exp.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="job-description">
+                                        Join our design team to create intuitive and beautiful user experiences. You'll collaborate with product managers and engineers to design interfaces for web and mobile applications. Proficiency in Figma, Sketch, or Adobe XD required. Portfolio demonstrating user-centered design solutions is a must.
+                                    </p>
+                                    
+                                    <div class="job-tags">
+                                        <span class="job-tag">Figma</span>
+                                        <span class="job-tag">UI Design</span>
+                                        <span class="job-tag">User Research</span>
+                                        <span class="job-tag">Prototyping</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-card-footer">
+                                    <span class="job-posted">Posted 1 week ago • 56 applicants</span>
+                                    <button class="job-apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Listing 3 -->
+                            <div class="card job-card fade-in" style="animation-delay: 0.2s;">
+                                <div class="job-card-header">
+                                    <div class="job-card-company">
+                                        <img src="https://logo.clearbit.com/creativeminds.com" class="company-logo" alt="CreativeMinds">
+                                        <div class="company-info">
+                                            <h4>CreativeMinds</h4>
+                                            <p>Austin, TX • On-site</p>
+                                        </div>
+                                    </div>
+                                    <button class="job-save-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="job-card-body">
+                                    <h3 class="job-title">Product Manager</h3>
+                                    
+                                    <div class="job-details">
+                                        <div class="job-detail">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>$130K - $160K</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Full-time</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>7+ years exp.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="job-description">
+                                        We're seeking an experienced Product Manager to lead our core product team. You'll define product vision, strategy, and roadmap while working closely with engineering, design, and marketing teams. Strong analytical skills and experience with Agile methodologies required. Technical background is a plus.
+                                    </p>
+                                    
+                                    <div class="job-tags">
+                                        <span class="job-tag">Product Strategy</span>
+                                        <span class="job-tag">Agile</span>
+                                        <span class="job-tag">Market Research</span>
+                                        <span class="job-tag">Roadmapping</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-card-footer">
+                                    <span class="job-posted">Posted 3 days ago • 18 applicants</span>
+                                    <button class="job-apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Listing 4 -->
+                            <div class="card job-card fade-in" style="animation-delay: 0.3s;">
+                                <div class="job-card-header">
+                                    <div class="job-card-company">
+                                        <img src="https://logo.clearbit.com/startuphub.com" class="company-logo" alt="StartupHub">
+                                        <div class="company-info">
+                                            <h4>StartupHub</h4>
+                                            <p>Remote • Worldwide</p>
+                                        </div>
+                                    </div>
+                                    <button class="job-save-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="job-card-body">
+                                    <h3 class="job-title">Backend Engineer (Node.js)</h3>
+                                    
+                                    <div class="job-details">
+                                        <div class="job-detail">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>$110K - $140K</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Full-time</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>5+ years exp.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="job-description">
+                                        Join our engineering team to build scalable backend services for our growing platform. You'll work with Node.js, TypeScript, PostgreSQL, and AWS to develop APIs and microservices. Experience with distributed systems, caching strategies, and performance optimization is highly valued.
+                                    </p>
+                                    
+                                    <div class="job-tags">
+                                        <span class="job-tag">Node.js</span>
+                                        <span class="job-tag">TypeScript</span>
+                                        <span class="job-tag">PostgreSQL</span>
+                                        <span class="job-tag">AWS</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-card-footer">
+                                    <span class="job-posted">Posted 5 days ago • 42 applicants</span>
+                                    <button class="job-apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Listing 5 -->
+                            <div class="card job-card fade-in" style="animation-delay: 0.4s;">
+                                <div class="job-card-header">
+                                    <div class="job-card-company">
+                                        <img src="https://logo.clearbit.com/datatech.com" class="company-logo" alt="DataTech">
+                                        <div class="company-info">
+                                            <h4>DataTech</h4>
+                                            <p>Boston, MA • Hybrid</p>
+                                        </div>
+                                    </div>
+                                    <button class="job-save-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="job-card-body">
+                                    <h3 class="job-title">Data Scientist</h3>
+                                    
+                                    <div class="job-details">
+                                        <div class="job-detail">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>$140K - $170K</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Full-time</span>
+                                        </div>
+                                        <div class="job-detail">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>4+ years exp.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="job-description">
+                                        We're looking for a Data Scientist to analyze complex datasets and build machine learning models. You'll work with Python, SQL, and big data technologies to extract insights and create predictive models. Strong statistical background and experience with TensorFlow/PyTorch preferred.
+                                    </p>
+                                    
+                                    <div class="job-tags">
+                                        <span class="job-tag">Python</span>
+                                        <span class="job-tag">Machine Learning</span>
+                                        <span class="job-tag">SQL</span>
+                                        <span class="job-tag">TensorFlow</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="job-card-footer">
+                                    <span class="job-posted">Posted 1 day ago • 8 applicants</span>
+                                    <button class="job-apply-btn">Apply Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>© 2023 Connextora. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <a href="index.html">
+                <div class="mobile-nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="jobs.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Jobs</span>
+                </div>
+            </a>
+            <a href="explore.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </div>
+            </a>
+            <a href="alert.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Alerts</span>
+                </div>
+            </a>
+            <div class="mobile-nav-item" id="mobileMessagesBtn">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+            </div>
+            <a href="profile.html">
+                <div class="mobile-nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </nav>
+        
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <!-- Mobile Search Modal -->
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-header">
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <input type="text" class="search-modal-input" placeholder="Search people, jobs, posts...">
+            </div>
+            <!-- Search results would be dynamically inserted here -->
+        </div>
+        
+        <!-- Messaging Modal -->
+        <div class="messaging-modal" id="messagingModal">
+            <div class="messaging-header">
+                <h3 class="messaging-title">Messages</h3>
+                <div class="messaging-actions">
+                    <button id="closeMessaging">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="conversation-list">
+                <div class="conversation-item active">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="conversation-avatar" alt="User">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Sarah Johnson</span>
+                            <span class="conversation-time">12:30 PM</span>
+                        </div>
+                        <p class="conversation-preview">Hey! How about that project deadline...</p>
+                    </div>
+                </div>
+                <div class="conversation-item">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="conversation-avatar" alt="User">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Michael Chen</span>
+                            <span class="conversation-time">10:15 AM</span>
+                        </div>
+                        <p class="conversation-preview">The meeting has been rescheduled...</p>
+                    </div>
+                </div>
+                <div class="conversation-item">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="conversation-avatar" alt="User">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Priya Patel</span>
+                            <span class="conversation-time">Yesterday</span>
+                        </div>
+                        <p class="conversation-preview">Thanks for the feedback on the design!</p>
+                    </div>
+                </div>
+                <div class="conversation-item">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" class="conversation-avatar" alt="User">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">David Kim</span>
+                            <span class="conversation-time">Yesterday</span>
+                        </div>
+                        <p class="conversation-preview">Can you review the latest code changes?</p>
+                    </div>
+                </div>
+                <div class="conversation-item">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" class="conversation-avatar" alt="User">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Maria Garcia</span>
+                            <span class="conversation-time">Monday</span>
+                        </div>
+                        <p class="conversation-preview">The UX research findings are ready</p>
+                    </div>
+                </div>
+            </div>
+            <div class="message-input-container">
+                <input type="text" class="message-input" placeholder="Type a message...">
+                <button class="send-message-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="jobs.js"></script>
+</body>
+</html>
